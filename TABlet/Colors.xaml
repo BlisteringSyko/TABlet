@@ -3,6 +3,7 @@
                     xmlns:local="clr-namespace:TABlet"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     x:Name="Colors">
+    
     <Color x:Key="BackGroundColor">#FF181818</Color>
     <Color x:Key="BackGroundColorLight">#FF393939</Color>
     <Color x:Key="BorderColor">#FF9c1aff</Color>
@@ -16,6 +17,7 @@
     <sys:Double x:Key="FadedOpacity">.235</sys:Double>
 
     <SolidColorBrush x:Key="FadedBGBrush" Color="{DynamicResource BorderColor}" Opacity="{DynamicResource FadedOpacity}"/>
+    <SolidColorBrush x:Key="FadedBGBrushRed" Color="Red" Opacity="{DynamicResource FadedOpacity}"/>
 
     <!--<SolidColorBrush x:Key="BorderBrushFaded" Color="{StaticResource BorderColor}" Opacity="{StaticResource FadedOpacity}"/>-->
 

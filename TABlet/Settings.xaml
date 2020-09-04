@@ -42,14 +42,14 @@
                 <shell:Grid HorizontalAlignment="Stretch" Height="20.8" Margin="0,0,0,0" VerticalAlignment="Top" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}">
                     <shell:Grid.ColumnDefinitions>
                         <shell:ColumnDefinition Width="25"/>
-                        <shell:ColumnDefinition Width="170"/>
+                        <shell:ColumnDefinition Width="0"/>
                         <shell:ColumnDefinition/>
                         <shell:ColumnDefinition Width="50"/>
                         <shell:ColumnDefinition Width="50"/>
                         <shell:ColumnDefinition Width="50"/>
                     </shell:Grid.ColumnDefinitions>
 
-                    <shell:Image shell:Grid.Column="0" Margin="4,2,0,0" Source="{Binding Path=Icon}" Stretch="None"/>
+                    <shell:Image shell:Grid.Column="0" Margin="4,2,0,0" Source="{Binding Path=Icon}" Stretch="Uniform" />
                     <shell:Label Content="TABlet Settings" shell:Grid.Column="2" Height="20" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}" Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" Padding="5,2,5,0" HorizontalContentAlignment="Center"/>
                     <shell:Button Content="_" shell:Grid.Column="3" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="MinimizeButton_Click" Style="{shell:DynamicResource MinimizeButtonStyle}" />
                     <shell:Button Content="O" shell:Grid.Column="4" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="MaximizeButton_Click" Style="{shell:DynamicResource MaximizeButtonStyle}"/>
@@ -60,6 +60,7 @@
             <!--Start of main content-->
             <Grid Grid.Row="1"  Background="{DynamicResource BackGroundBrush}">
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -117,6 +118,7 @@
 
                     <xctk:ColorPicker Grid.Row="1" Name="BorderColorPicker" SelectedColor="{Binding Path=BorderColor}" Background="{DynamicResource BackGroundBrush}"  Margin=" 5,5,5,5"/>
                 </Grid>
+                <Button Grid.Row="5" Content="Reset" BorderThickness="1" BorderBrush="Red" Background="{DynamicResource FadedBGBrushRed}" Foreground="White" Click="ResetButton_Click" Height="30" Width="400"/>
 
             </Grid>
             <!--End of main content-->

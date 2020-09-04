@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace TABlet
 {
@@ -23,8 +13,6 @@ namespace TABlet
         {
             InitializeComponent();
             this.DataContext = jsondata;
-
-
 
         }
 
@@ -62,6 +50,15 @@ namespace TABlet
             {
                 BORDER.BorderThickness = new Thickness(2);
             }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((JsonData)this.DataContext).ForeGroundColor = "#FFFFFFFF";
+            ((JsonData)this.DataContext).BackGroundColor = "#FF181818";
+            ((JsonData)this.DataContext).BackGroundColorLight = "#FF393939";
+            ((JsonData)this.DataContext).BorderColor = "#FF9c1aff";
+            ((JsonData)this.DataContext).Scale = 1;
         }
     }
 }

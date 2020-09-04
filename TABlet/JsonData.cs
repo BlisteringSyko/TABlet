@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-//using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -141,9 +135,9 @@ namespace TABlet
                 _captionHeight = value;
                 OnChange();
             }
-        }//doh
+        }
 
-        public ObservableCollection<notepad> _list = new ObservableCollection<notepad>();
+        public ObservableCollection<Notepad> _list = new ObservableCollection<Notepad>();
 
         public JsonData()
         {
@@ -162,7 +156,7 @@ namespace TABlet
         {
             using (MemoryStream memory = new MemoryStream())
             {
-                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
                 memory.Position = 0;
                 BitmapImage bitmapimage = new BitmapImage();
                 bitmapimage.BeginInit();

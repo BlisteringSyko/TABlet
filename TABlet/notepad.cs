@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace TABlet
 {
-    public class notepad : INotifyPropertyChanged
+    public class Notepad : INotifyPropertyChanged
     {
 
         private string _title;
@@ -74,9 +70,7 @@ namespace TABlet
 
         public Guid Guid { get; set; }
 
-
-
-        public notepad(string title, string content)
+        public Notepad(string title, string content)
         {
             Guid = Guid.NewGuid();
             this.Title = title;
@@ -93,7 +87,6 @@ namespace TABlet
             string[] lines = value.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
             Lines = "Lines: " + lines.Length;
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

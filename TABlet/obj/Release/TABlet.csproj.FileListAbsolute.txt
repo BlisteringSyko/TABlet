@@ -23,7 +23,6 @@ C:\VS Projects\TABlet\TABlet\bin\Release\ro\Xceed.Wpf.AvalonDock.resources.dll
 C:\VS Projects\TABlet\TABlet\bin\Release\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\VS Projects\TABlet\TABlet\bin\Release\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\VS Projects\TABlet\TABlet\bin\Release\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\VS Projects\TABlet\TABlet\obj\Release\TABlet.csprojAssemblyReference.cache
 C:\VS Projects\TABlet\TABlet\obj\Release\MainWindow.g.cs
 C:\VS Projects\TABlet\TABlet\obj\Release\Settings.g.cs
 C:\VS Projects\TABlet\TABlet\obj\Release\App.g.cs

@@ -159,10 +159,16 @@
     <Resource Include="study.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\study_3DY_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\study.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icon.ico" />
+    <None Include="Resources\study.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using Newtonsoft.Json;
+using Microsoft.Win32;
 
 namespace TABlet
 {
@@ -33,8 +23,6 @@ namespace TABlet
         DispatcherTimer dt = new DispatcherTimer();
         Stopwatch sw = new Stopwatch();
 
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -46,12 +34,11 @@ namespace TABlet
             dt.Tick += Dt_Tick;
             dt.IsEnabled = true;
             dt.Start();
-            
         }
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-            if(sw.IsRunning && sw.ElapsedMilliseconds >= 5000)
+            if (sw.IsRunning && sw.ElapsedMilliseconds >= 5000)
             {
                 sw.Stop();
                 Savelist();
@@ -62,18 +49,12 @@ namespace TABlet
 
         private void Np_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-                sw.Restart();
+            sw.Restart();
         }
 
         private void Savelist()
         {
             JsonSerializerSettings jss = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Include, MissingMemberHandling = MissingMemberHandling.Ignore, Formatting = Formatting.Indented };
-
-
-            //jsonData.BackGroundColor = Application.Current.Resources["BackGroundColor"].ToString();
-            //jsonData.BackGroundColorLight = Application.Current.Resources["BackGroundColorLight"].ToString();
-            //jsonData.ForeGroundColor = Application.Current.Resources["ForeGroundColor"].ToString();
-            //jsonData.BorderColor = Application.Current.Resources["BorderColor"].ToString();
 
             string raw = JsonConvert.SerializeObject(jsonData, jss);
             System.IO.File.WriteAllText(SavePath, raw);
@@ -91,14 +72,15 @@ namespace TABlet
                 Application.Current.Resources["BorderColor"] = ColorConverter.ConvertFromString(jsonData.BorderColor);
 
 
-                foreach (notepad np in jsonData._list)
+                foreach (Notepad np in jsonData._list)
                 {
                     np.PropertyChanged += Np_PropertyChanged;
                 }
 
-            } else
+            }
+            else
             {
-                jsonData._list = new ObservableCollection<notepad>();
+                jsonData._list = new ObservableCollection<Notepad>();
             }
 
             if (jsonData._list.Count == 0)
@@ -116,7 +98,7 @@ namespace TABlet
 
         private void NewTab()
         {
-            notepad np = new notepad("*New*", "");
+            Notepad np = new Notepad("*New*", "");
             np.PropertyChanged += Np_PropertyChanged;
             jsonData._list.Add(np);
 
@@ -132,7 +114,7 @@ namespace TABlet
 
         private void RemoveCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            notepad np = TabControl.SelectedItem as notepad;
+            Notepad np = TabControl.SelectedItem as Notepad;
 
             MessageBoxResult mbr = MessageBox.Show($"Are you sure you want to remove tab {np.Title}?", "Woah!", MessageBoxButton.YesNo);
 
@@ -188,6 +170,19 @@ namespace TABlet
         {
             Settings settings = new Settings(jsonData);
             settings.Show();
+        }
+
+        private void SaveCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Notepad np = TabControl.SelectedItem as Notepad;
+            SaveFileDialog sfd1 = new SaveFileDialog();
+            sfd1.DefaultExt = ".txt";
+            sfd1.Filter = ".txt|*.txt";
+            sfd1.FileName = np.Title;
+            if (sfd1.ShowDialog() == true)
+            {
+                System.IO.File.WriteAllText(sfd1.FileName, np.Content);
+            }
         }
     }
 }
