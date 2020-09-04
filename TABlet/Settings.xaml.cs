@@ -23,6 +23,9 @@ namespace TABlet
         {
             InitializeComponent();
             this.DataContext = jsondata;
+
+
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

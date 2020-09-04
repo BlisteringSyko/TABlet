@@ -25,26 +25,25 @@
     <shell:WindowChrome.WindowChrome>
         <shell:WindowChrome        
             ResizeBorderThickness="6"
-            CaptionHeight="{Binding Path=CaptionHeight, UpdateSourceTrigger=PropertyChanged, diag:PresentationTraceSources.TraceLevel=High}"
+            CaptionHeight="{Binding Path=CaptionHeight, FallbackValue=25, UpdateSourceTrigger=PropertyChanged, diag:PresentationTraceSources.TraceLevel=High}"
             CornerRadius="0,0,0,0"
             GlassFrameThickness="0" >
         </shell:WindowChrome>
     </shell:WindowChrome.WindowChrome>
 
-    <Grid Name="MainGrid">
 
-        <Grid.LayoutTransform>
-            <ScaleTransform x:Name="ApplicationScaleTransform"
+
+    <Border x:Name="BORDER"  BorderThickness="2,2,2,2" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource BackGroundBrush}">
+
+        <Grid>
+            <Grid.LayoutTransform>
+                <ScaleTransform x:Name="ApplicationScaleTransform"
                         CenterX="0"
                         CenterY="0"
                         ScaleX="{Binding Path=Scale}"
                         ScaleY="{Binding Path=Scale}" />
-        </Grid.LayoutTransform>
+            </Grid.LayoutTransform>
 
-
-        <Border x:Name="BORDER"  BorderThickness="2,2,2,2" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource BackGroundBrush}">
-
-        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -67,20 +66,20 @@
                     </shell:Grid.ColumnDefinitions>
 
                     <shell:Image shell:Grid.Column="0" Margin="4,2,0,0" Source="{Binding Path=Icon}" Stretch="None"/>
-                    <Menu Height="18" VerticalAlignment="Top" shell:Grid.Column="1" Background="{DynamicResource BackGroundBrush}" Foreground="White" BorderBrush="#FF9370DB" Margin="0,1,0,0">
+                    <Menu Height="18" VerticalAlignment="Top" shell:Grid.Column="1" Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" BorderBrush="#FF9370DB" Margin="0,1,0,0">
                         <MenuItem Header="File" Background="{DynamicResource BackGroundBrush}"  WindowChrome.IsHitTestVisibleInChrome="True">
-                            <MenuItem Header="New" Background="{DynamicResource BackGroundBrush}" Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True" Command="New" InputGestureText="Ctrl+N, Ctrl+T"/>
-                            <MenuItem Header="Remove" Background="{DynamicResource BackGroundBrush}" Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True" Command="Delete" InputGestureText="Ctrl+W"/>
+                            <MenuItem Header="New" Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" WindowChrome.IsHitTestVisibleInChrome="True" Command="New" InputGestureText="Ctrl+N, Ctrl+T"/>
+                            <MenuItem Header="Remove" Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" WindowChrome.IsHitTestVisibleInChrome="True" Command="Delete" InputGestureText="Ctrl+W"/>
                             <Separator Background="{DynamicResource BorderBrush}"/>
-                            <MenuItem Name='SettingsMenu' Header="Settings" Click='SettingsMenu_Click' Background="{DynamicResource BackGroundBrush}" Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                            <MenuItem Name='SettingsMenu' Header="Settings" Click='SettingsMenu_Click' Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" WindowChrome.IsHitTestVisibleInChrome="True"/>
                             <Separator Background="{DynamicResource BorderBrush}"/>
-                            <MenuItem Name='ExitMenu' Header="Exit" Click='ExitMenuItem_Click' Background="{DynamicResource BackGroundBrush}" Foreground="White" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                            <MenuItem Name='ExitMenu' Header="Exit" Click='ExitMenuItem_Click' Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" WindowChrome.IsHitTestVisibleInChrome="True"/>
                         </MenuItem>
                     </Menu>
-                    <shell:Label Content="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" shell:Grid.Column="2" Height="20" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}" Background="{StaticResource BackGroundBrush}" Foreground="#FFC9C9C9" Padding="5,2,5,0" HorizontalContentAlignment="Center"/>
-                    <shell:Button Content="_" shell:Grid.Column="3" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="MinimizeButton_Click" Style="{shell:DynamicResource MinimizeButtonStyle}" />
-                    <shell:Button Content="O" shell:Grid.Column="4" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="MaximizeButton_Click" Style="{shell:DynamicResource MaximizeButtonStyle}"/>
-                    <shell:Button Content="X" shell:Grid.Column="5" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="ExitButton_Click" Style="{shell:DynamicResource ExitButtonStyle}"/>
+                    <shell:Label Content="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" shell:Grid.Column="2" Height="20" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}" Background="{DynamicResource BackGroundBrush}" Foreground="{DynamicResource ForeBrush}" Padding="5,2,5,0" HorizontalContentAlignment="Center"/>
+                    <shell:Button Content="_" shell:Grid.Column="3" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="MinimizeButton_Click" Style="{DynamicResource MinimizeButtonStyle}" />
+                    <shell:Button Content="O" shell:Grid.Column="4" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="MaximizeButton_Click" Style="{DynamicResource MaximizeButtonStyle}"/>
+                    <shell:Button Content="X" shell:Grid.Column="5" HorizontalAlignment="Left" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" WindowChrome.IsHitTestVisibleInChrome="True" Click="ExitButton_Click" Style="{DynamicResource ExitButtonStyle}"/>
                 </shell:Grid>
             </Border>
 
@@ -141,9 +140,9 @@
                                         <ColumnDefinition Width="100"/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" Text=""/>
-                                    <TextBlock Grid.Column="1" Text="{Binding Path=Chars, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{StaticResource ForeBrush}"/>
-                                    <TextBlock Grid.Column="2" Text="{Binding Path=Words, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{StaticResource ForeBrush}"/>
-                                    <TextBlock Grid.Column="3" Text="{Binding Path=Lines, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{StaticResource ForeBrush}"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Path=Chars, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{DynamicResource ForeBrush}"/>
+                                    <TextBlock Grid.Column="2" Text="{Binding Path=Words, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{DynamicResource ForeBrush}"/>
+                                    <TextBlock Grid.Column="3" Text="{Binding Path=Lines, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{DynamicResource ForeBrush}"/>
                                 </Grid>
                             </Grid>
                         </DataTemplate>
@@ -157,6 +156,5 @@
 
         </Grid>
     </Border>
-    </Grid>
 
 </ccl:CustomChromeWindow>

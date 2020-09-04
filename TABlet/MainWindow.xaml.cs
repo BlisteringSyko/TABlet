@@ -85,10 +85,10 @@ namespace TABlet
             {
                 string raw = System.IO.File.ReadAllText(SavePath);
                 jsonData = JsonConvert.DeserializeObject<JsonData>(raw);
-                //Application.Current.Resources["BackGroundColor"] = ColorConverter.ConvertFromString(jsonData.BackGroundColor);
-                //Application.Current.Resources["BackGroundColorLight"] = ColorConverter.ConvertFromString(jsonData.BackGroundColorLight);
-                //Application.Current.Resources["ForeGroundColor"] = ColorConverter.ConvertFromString(jsonData.ForeGroundColor);
-                //Application.Current.Resources["BorderColor"] = ColorConverter.ConvertFromString(jsonData.BorderColor);
+                Application.Current.Resources["BackGroundColor"] = ColorConverter.ConvertFromString(jsonData.BackGroundColor);
+                Application.Current.Resources["BackGroundColorLight"] = ColorConverter.ConvertFromString(jsonData.BackGroundColorLight);
+                Application.Current.Resources["ForeGroundColor"] = ColorConverter.ConvertFromString(jsonData.ForeGroundColor);
+                Application.Current.Resources["BorderColor"] = ColorConverter.ConvertFromString(jsonData.BorderColor);
 
 
                 foreach (notepad np in jsonData._list)

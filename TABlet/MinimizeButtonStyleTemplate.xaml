@@ -11,9 +11,9 @@
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
     <Style x:Key="MinimizeButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource Button.Static.Background}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource Button.Static.Border}"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource BackGroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BackGroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ForeBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -38,12 +38,12 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.MouseOver.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.MouseOver.Border}"/>
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource FadedBGBrush}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Pressed.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Pressed.Border}"/>
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource BorderBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Disabled.Background}"/>
